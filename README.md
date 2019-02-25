@@ -10,6 +10,10 @@
 7、拥有文章评论，但是没有登陆与删除功能，主要因为，如果必须登陆才可以拥有评论权限的话，会打击用户对文章的评论心态，进而可能失去优秀的文章评论。采用了邮箱发送给用户授权码的功能，有效防止了用户刻意刷取用户评论。至于登陆与注册这一块，如果以后需要保护的文件或者资料，会立即添加登陆和注册功能。  
 8、至于发布文章这一块信息安全方面，由于没有登陆和注册，所以没有进行管辖，这一块是这个网站的漏洞，后期会补上。UE编辑器发布文章新增加了图片上传的功能，图片上传到本地，获取本地图片的地址进行显示。  
   
-有什么好的意见，欢迎大家进行提议。这也是我学习的动力与方向。
-
-
+有什么好的意见，欢迎大家进行提议。这也是我学习的动力与方向。  
+## 项目截图:
+![imge](https://github.com/wyf2215087636/hello_github/blob/master/项目截图/1.png)  
+![imge](https://github.com/wyf2215087636/hello_github/blob/master/项目截图/2.png)  
+![imge](https://github.com/wyf2215087636/hello_github/blob/master/项目截图/3.png)  
+![imge](https://github.com/wyf2215087636/hello_github/blob/master/项目截图/4.png)  
+![imge](https://github.com/wyf2215087636/hello_github/blob/master/项目截图/5.png)  
