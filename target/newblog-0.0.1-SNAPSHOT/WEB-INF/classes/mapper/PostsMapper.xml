@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog.springboot.mapper.PostsMapper">
+    <resultMap id="posts" type="com.blog.springboot.pojo.Posts">
+        <id column="id" property="id"></id>
+        <result column="title" property="title"></result>
+        <result column="content" property="content"></result>
+        <result column="time" property="time"></result>
+        <result column="imgurl" property="imgurl"></result>
+        <result column="popularity" property="popularity"></result>
+        <result column="simple" property="simple"></result>
+        <association column="user_id" property="user" javaType="com.blog.springboot.pojo.User" select="com.blog.springboot.mapper.PostsMapper.getUser"></association>
+    	<collection column="id" property="replies" select="com.blog.springboot.mapper.PostsMapper.getReplies"></collection>
+    </resultMap>
+ 	<resultMap id="user" type="com.blog.springboot.pojo.User">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="password" property="password"></result>
+        <result column="integral" property="integral"></result>
+    </resultMap>
+	<resultMap id="reply" type="com.blog.springboot.pojo.Reply">
+        <id column="id" property="id"></id>
+        <result column="reply_info" property="reply_info"></result>
+        <result column="time" property="time"></result>
+        <association column="reply_user_id" property="user"  javaType="com.blog.springboot.pojo.User" select="com.blog.springboot.mapper.PostsMapper.getUser"></association>
+    </resultMap>
+    <select id="getUser" resultMap="user">
+      SELECT * FROM `user_` where id = #{id}
+    </select>
+
+	<select id="getPosts" parameterType="int" resultMap="posts">
+		select * from `posts` where id=#{id}
+	</select>
+
+	<select id="getReplies" resultMap="reply">
+		select * from `reply` where posts_id=#{id}
+	</select>
+	
+	<select id="getAllPosts" resultMap="posts">
+		select * from `posts`
+	</select>
+	<insert parameterType="User" id="insertUser" keyProperty="id" useGeneratedKeys="true">
+		insert into `user_`(name,password) values(#{name},#{password})
+	</insert>
+	<insert id="insertPosts" parameterType="Posts">
+		insert into `posts`(title,content,time,user_id) values(#{title},#{content},#{time},#{user_id})
+	</insert>
+	<insert id="insertReply" parameterType="Reply">
+		insert into `reply`(reply_info,reply_user_id,time,posts_id) values(#{reply_info},#{reply_user_id},#{time},#{posts_id})
+	</insert>
+</mapper>

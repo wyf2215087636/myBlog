@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<script type="text/javascript" src="../../webapp/static/js/jquery.min.js" th:src="@{/static/js/jquery.min.js}"></script>
+  <link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/amazeui.min.css" th:href="@{/static/css/amazeui.min.css}"/>
+<link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/editor/css/editormd.min.css" th:href="@{/static/editor/css/editormd.min.css}"/>
+<script type="text/javascript" src="../../webapp/static/editor/editormd.js" th:src="@{/static/editor/editormd.js}"></script>
+<script type="text/javascript" src="../../webapp/static/js/index.js" th:src="@{/static/js/index.js}"></script>
+</head>
+<body>
+	<!-- 构造form表单，以便提交数据-->
+		<form id="formBlog" action="/insertPosts" method="post">
+		<div style="width: 100%;margin: 0 auto;height: 36.8px;background: red;">
+        	<input id="blog_title" name="title" value="" style="display: block;float: left;height: 36.8px;width: 90%;" placeholder="标题" ></input>
+			<button class="am-btn am-btn-success btn-blog-save" style="width: 10%;">发布内容</button>
+		</div>
+		    <textarea id="blog_md" name="simple" value="" style="display: none;"></textarea>
+		    <textarea id="blog_html" name="content" value="" style="display: none;"></textarea>
+			
+		</form>
+	
+	<div class="row">
+	    
+	        <div class="panel-body">
+	            <div class="row">
+	                <!-- md文件编辑器编辑区域 后续js中会使用到 -->
+	                	
+	                <div id="blog_mdedit"></div>
+	            </div>
+	        </div>
+	    </div>
+	
+</body>
+						<script type="text/javascript">
+						    
+						</script>
+</html>
