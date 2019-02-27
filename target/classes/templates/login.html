@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>管理员登陆-遵循网站规则</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles."/>
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <script type="text/javascript" src="../../webapp/static/js/jquery.min.js" th:src="@{/static/js/jquery.min.js}"></script>
+     <script type="text/javascript" src="../../webapp/static/js/index.js" th:src="@{/static/js/index.js}"></script>
+  <link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/loginstyle.css" th:href="@{/static/css/loginstyle.css}"/>
+  <link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/reset.css" th:href="@{/static/css/reset.css}"/>
+</head>
+<body>
+<div id="particles-js">
+		<div class="login">
+			<div class="login-top">
+				管理员登录
+			</div>
+			<div class="login-center clearfix">
+				<div class="login-center-img"><img src="static/img/name.png"/></div>
+				<div class="login-center-input">
+					<input type="text" name="adminname" id="adminname" value="" placeholder="请输入您的用户名" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'"/>
+					<div class="login-center-input-text">用户名</div>
+				</div>
+			</div>
+			<div class="login-center clearfix">
+				<div class="login-center-img"><img src="static/img/password.png"/></div>
+				<div class="login-center-input">
+					<input type="password" name="adminpass" id="adminpass" value="" placeholder="请输入您的密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'"/>
+					<div class="login-center-input-text">密码</div>
+				</div>
+			</div>
+			<div class="login-button">
+				登陆
+			</div>
+		</div>
+		<div class="sk-rotating-plane"></div>
+</div>
+<!-- scripts -->
+<script type="text/javascript" src="../../webapp/static/js/particles.min.js" th:src="@{/static/js/particles.min.js}"></script>
+<script type="text/javascript" src="../../webapp/static/js/app.js" th:src="@{/static/js/app.js}"></script>
+<script type="text/javascript">
+
+</script>
+<div style="text-align:center;">
+</div>
+</body>
+</html>

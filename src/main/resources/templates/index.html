@@ -1,211 +1,421 @@
 <!DOCTYPE HTML>
+
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
 
 <div th:replace="include::footer1" ></div>
 
+
+
 <!--[if lt IE 9]>
+
 <script src="js/modernizr.js"></script>
+
 <![endif]-->
+
 </head>
+
 <body>
+
 <header id="header">
+
   <div class="navbar">
+
     <div class="topbox">
+
       <p class="welcome">您好，欢迎您访问王逸飞个人博客，在这里，它不仅仅是记录个人的平台，更是一个记录世界、时代的平台！</p>
+
       <div class="searchbox">
+
         <div id="search_bar" class="search_bar">
+
           <form  id="searchform" action="[!--news.url--]e/search/index.php" method="post" name="searchform">
+
             <input class="input" placeholder="想搜点什么呢.." type="text" name="keyboard" id="keyboard"/>
+
             <input type="hidden" name="show" value="title" />
+
             <input type="hidden" name="tempid" value="1" />
+
             <input type="hidden" name="tbname" value="news"/>
+
             <input type="hidden" name="Submit" value="搜索" />
+
             <p class="search_ico"> <span></span></p>
+
           </form>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+
   <div class="header-navigation">
+
     <nav>
+
       <div class="logo"><a href="http://www.yangqq.com">王逸飞个人博客</a></div>
+
       <h2 id="mnavh"><span class="navicon"></span></h2>
+
       <ul id="starlist">
+
         <li><a th:href="@{'/index'}" style="line-height: 40px;display: block;">网站首页</a></li>
+
         <li><a th:href="@{'/index1'}" style="line-height: 40px;display: block;">关于我</a></li>
+
       </ul>
+
     </nav>
+
   </div>
+
 </header>
 
+
+
 <div class="wrapper">
+
   <main> 
+
     <!--banner begin-->
-    <div class="banner">
+
+    <div class="banner" style="border: 1px solid #cccccc;background:white;">
+
       <div id="banner" class="fader">
+
         <li class="slide" th:each="p:${pagePopularity.list}"><a th:href="@{'/details/'+${p.id}}" th:title="${p.title}" target="_blank"><img th:src="${p.imgurl}"/><span class="imginfo" th:text="${p.title}">D设计师博客-一个热爱生活的设计师123</span></a></li>
+
         <div class="fader_controls">
+
           <div class="page prev" data-target="prev">&lsaquo;</div>
+
           <div class="page next" data-target="next">&rsaquo;</div>
+
           <ul class="pager_list">
+
           </ul>
+
         </div>
+
       </div>
+
     </div>
+
     <!--banner end-->
+
     <div class="bloglist" style="width: 100%;">
+
       <ul>
+
       
+
         <li th:each="p:${page.list}"> <i class="blogpic"><a href="#"><img th:src="${p.imgurl}" alt=""/> </a></i>
+
           <dl>
+
             <dt><a th:href="@{'/details/'+${p.id}}" target="_blank" th:text="${p.title}">个人博客，我为什么要用帝国cms？</a></dt>
+
             <dd><span class="bloginfo" th:text="${p.simple}">选择帝国cms，做一个博客系统，很多人都说是大材小用。确实是有那种感觉，因为cms有很多功能表用不上。但是帝国cms的安装包也就才6M，如果你放一张高清的1920的图，都比这安装包大！我就来说一说我为什么要用帝国cms...</span>
+
               <p class="timeinfo"><span class="lanmu"><a href="#" target="_blank">个人博客</a></span><span class="date" th:text="${#dates.format(p.time,'yyyy年MM月dd日 HH:mm:ss')}">2018-07-03</span></p>
+
               <a class="read" th:href="@{'/details/'+${p.id}}">阅读更多</a> </dd>
+
           </dl>
+
         </li>
+
        
+
       </ul>
+
     </div>
+
     <div style="margin:20px auto;">
+
     
+
     <br/>
+
       <ul data-am-widget="pagination"
+
       class="page_ul"
+
       style="width:400px;margin: 0 auto;">
 
+
+
       <li class="am-pagination-first ">
+
         <a th:href="@{/index(start=0)}" class="">第一页</a>
+
       </li>
 
+
+
       <li class="am-pagination-prev ">
+
         <a th:href="@{/index(start=${page.pageNum-1})}" class="">上一页</a>
+
       </li>
+
+
+
 
 
             <li class="">
+
               <div th:text="'&nbsp;&nbsp;'+${page.pageNum}+'&nbsp;&nbsp;&nbsp;'">${page}</div>
+
             </li>
 
+
+
       <li class="am-pagination-next ">
+
         <a th:href="@{/index(start=${page.pageNum+1})}" class="">下一页</a>
+
       </li>
 
+
+
       <li class="am-pagination-last ">
+
         <a th:href="@{/index(start=${page.pages})}" class="">最末页</a>
+
       </li>
+
   </ul>
+
   </div>
+
     <!--bloglist end--> 
+
   </main>
+
   <aside class="sidebar">
+
     <div>
+
       <ul class="flnav">
+
         <li><a href="#" title="最新文章" class="pall"></a></li>
+
         <li><a href="#" title="站长推荐" class="pgood"></a></li>
+
         <li><a href="#" title="点击排行" class="pbro"></a></li>
+
         <li><a href="#" title="头条关注" class="pfav"></a></li>
+
       </ul>
+
     </div>
+
     <div class="newstw">
+
     <ul class="sidenews">
+
         <h2>点击排行</h2>
+
         <li th:each="p:${pagePopularity.list}"> <i><img th:src="${p.imgurl}"/></i>
+
           <p><a th:href="@{'/details/'+${p.id}}" th:text="${p.title}">别让这些闹心的套路，毁了你的网页设计</a></p>
+
           <span th:text="${#dates.format(p.time,'yyyy年MM月dd日 HH:mm:ss')}">2018-05-13</span> </li>
+
       </ul>
+
       <ul class="sidenews">
+
         <h2>最新文章</h2>
+
         <li th:each="p:${pageinfo.list}"> <i><img th:src="${p.imgurl}"/></i>
+
           <p><a th:href="@{'/details/'+${p.id}}" th:text="${p.title}">别让这些闹心的套路，毁了你的网页设计</a></p>
+
           <span th:text="${#dates.format(p.time,'yyyy年MM月dd日 HH:mm:ss')}">2018-05-13</span> </li>
+
         
+
       </ul>
+
       <ul class="sidenews">
+
         <h2>站长推荐</h2>
+
         <li th:each="p:${pagePopularity.list}"> <i><img th:src="${p.imgurl}"/></i>
+
           <p><a th:href="@{'/details/'+${p.id}}" th:text="${p.title}">别让这些闹心的套路，毁了你的网页设计</a></p>
+
           <span th:text="${#dates.format(p.time,'yyyy年MM月dd日 HH:mm:ss')}">2018-05-13</span> </li>
+
       </ul>
+
       <ul class="sidenews">
+
         <h2>头条关注</h2>
+
         <li th:each="p:${pageinfo.list}"> <i><img th:src="${p.imgurl}"/></i>
+
           <p><a th:href="@{'/details/'+${p.id}}" th:text="${p.title}">别让这些闹心的套路，毁了你的网页设计</a></p>
+
           <span th:text="${#dates.format(p.time,'yyyy年MM月dd日 HH:mm:ss')}">2018-05-13</span> </li>
+
       </ul>
+
     </div>
+
     <div class="ad"> <img src="../../static/img/7.jpg"/> </div>
+
     <div class="about">
+
       <h2 class="hometitle">关于本站</h2>
+
       <ul>
+
         <div class="avatar"> <img src="../../static/img/tx.png" alt=""/> </div>
+
         <p class="abname">dancesmile | 杨青</p>
+
         <p class="abtext"> 一个80后草根女站长！09年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。 </p>
+
         <li><a class="xlwb" href="#" target="_blank"></a></li>
+
         <li><a class="txqq" href="" target="_blank"></a></li>
+
         <li><a class="rss" href="" target="_blank"></a></li>
+
         <li class="wxpic"><a class="wx" href=""></a><img src="../../static/img/grwx.png"/></li>
+
       </ul>
+
     </div>
+
     <div class="tjlm">
+
       <h2 class="hometitle">推荐栏目</h2>
+
       <ul>
+
         <li><a href="about.html">关于我</a></li>
+
         <li><a href="share.html">模板分享</a></li>
+
         <li><a href="list.html">博客日记</a></li>
+
         <li><a href="info.html">慢生活</a></li>
+
         <li><a href="time.html">时间轴</a></li>
+
         <li><a href="#">美文欣赏</a></li>
+
       </ul>
+
     </div>
+
     <div class="tpjx">
+
       <h2 class="hometitle">图片精选</h2>
+
       <ul>
+
         <li><a href="#"><i><img src="../../static/img/1.jpg"/></i><span>个人博客，属于我的小世界！</span></a></li>
+
         <li><a href="#"><i><img src="../../static/img/2.jpg"/></i><span>个人博客，属于我的小世界！</span></a></li>
+
         <li><a href="#"><i><img src="../../static/img/3.jpg"/></i><span>个人博客，属于我的小世界！</span></a></li>
+
         <li><a href="#"><i><img src="../../static/img/4.jpg"/></i><span>个人博客，属于我的小世界！</span></a></li>
+
         <li><a href="#"><i><img src="../../static/img/5.jpg"/></i><span>个人博客，属于我的小世界！</span></a></li>
+
         <li><a href="#"><i><img src="../../static/img/6.jpg"/></i><span>个人博客，属于我的小世界！</span></a></li>
+
       </ul>
+
     </div>
+
     <div class="links">
+
       <h2 class="hometitle">友情链接</h2>
+
       <ul>
+
         <li><a href="http://www.yangqq.com">杨青个人博客</a></li>
+
         <li><a href="http://www.searchtrip.cn">寻之旅</a></li>
+
         <li><a href="http://www.yangqq.com/download/">个人博客模板</a></li>
+
         <li><a href="http://www.yangqq.com/link.html">优秀个人博客</a></li>
+
       </ul>
+
     </div>
+
     <div class="ad"> <img src="../../static/img/8.jpg"/> </div>
+
   </aside>
+
   <!--sidebar end--> 
+
 </div>
+
 <!--wrapper end-->
+
 <footer>
+
   <div class="footer">
+
     <div class="wxbox">
+
       <ul>
+
         <li><img src="../../static/img/grwx.png"/><span>我的微信</span></li>
+
         <li><img src="../../static/img/wx.jpg"/><span>微信公众号</span></li>
+
       </ul>
+
     </div>
+
     <div class="bzjj">
+
       <h2>本站简介</h2>
+
       <p>王逸飞个人博客，采用了杨青的web模板，杨青:是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。</p>
+
     </div>
+
     <div class="other">
+
       <h2>网站版权</h2>
+
       <p>未经授权禁止转载、摘编、复制或建立镜像，如有违反，追究法律责任。举报邮箱：2215087636@qq.com</p>
+
       <p>&nbsp;</p>
+
       <p>备案号：蜀ICP备11002373号-1</p>
+
     </div>
+
   </div>
+
 </footer>
+
 <a href="#" class="cd-top">Top</a>
+
 </body>
+
+
 
 </html>

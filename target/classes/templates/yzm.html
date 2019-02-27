@@ -34,7 +34,12 @@
       <h2 id="mnavh"><span class="navicon"></span></h2>
       <ul id="starlist">
         <li><a th:href="@{'/index'}" style="line-height: 40px;display: block;">网站首页</a></li>
-        <li><a th:href="@{'/index1'}" style="line-height: 40px;display: block;">关于我</a></li>
+        <li><a th:href="@{'/admin'}" style="line-height: 40px;display: block;">网站后台</a></li>
+        <li style="width: 350px;" id="myinfo"><img class="am-circle" th:src="${session.admin_img}" width="40" height="40" style="float: left;"/><span style="line-height: 40px;display: block;width: 300px;float: left;" th:text="'尊敬的管理员: '+${session.admin}+' 您好'"></span>
+        	<ul style="display: none;" id="mydata">
+        		<li style="width: 300px;height: 40px;line-height:40px; background: white;" class="one"><a th:href="@{'/adminInfo'}" style="display: block;">个人资料</a></li>
+        	</ul>
+        </li>
       </ul>
     </nav>
   </div>
@@ -42,8 +47,24 @@
 
 <div class="wrapper">
   <main> 
-    123
-    <!--bloglist end--> 
+    <div class="news_pl" style="border: 1px solid #cccccc">
+        <form action="/details/comment" method="post" class="am-form" id="comment">
+        <fieldset>
+        <legend>管理员信息</legend>
+	      	  
+	      	  <div class="am-form-group">
+			      <label for="doc-ipt-email-1">管理员用户名:</label>
+			      <input name="adminname" id="adminname" class="am-form-group" type="text" th:value="${admin.adminname}"/>
+			  </div>
+			  <div class="am-form-group">
+			      <label for="doc-ipt-email-1">管理员密码:</label>
+			      <input name="adminpass" type="text" value="" class="am-form-group" id="adminpass" th:value="${admin.adminpass}"/>
+			  </div>
+	    	 <a class="am-btn am-btn-default" id="save_admin">保存</a>
+        </fieldset>
+    	 
+    	</form>
+      </div>
   </main>
 </div>
 </body>

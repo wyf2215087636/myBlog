@@ -402,16 +402,5 @@ public class UserPostsController {
 		
 	}
 	
-	@RequestMapping("/deletePosts")
-	public String deletePosts(int id) {
-		int num = postsMapper.delete(id);
-		if(num == 1) {
-			System.out.println("É¾³ý³É¹¦");
-			return "redirect:index";
-		}
 
-		return "/details/"+id;
-		
-		
-	}
 }

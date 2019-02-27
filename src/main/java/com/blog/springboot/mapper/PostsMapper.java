@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.blog.springboot.pojo.Admin;
 import com.blog.springboot.pojo.NewReply;
 import com.blog.springboot.pojo.Posts;
 import com.blog.springboot.pojo.Reply;
@@ -59,7 +60,12 @@ public interface PostsMapper {
 	@Update("update so_code set code=#{code},time=#{time} where usermail=#{usermail}")
 	public int updateSoCode(SoCode soCode);
 	
-
+	@Select("select * from admin where adminname=#{adminname}")
+	public Admin getOneAdmin(Admin admin);
+	
+	@Update("update admin set login_time=#{login_time} where adminname=#{adminname}")
+	public int updateAdmin(Admin admin);
+	
 	Posts getPosts(int id);
 
 	List<Posts> getAllPosts();
