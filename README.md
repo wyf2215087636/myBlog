@@ -38,7 +38,7 @@
 2019-3-5  10：47=======================  
 1、增加了音乐解析页面，调用API进行音乐解析(不过直接下载功能需要完善没有想到什么好办法)，使用Jsoup爬src，会直接反回来无限的乱码，我也不知道什么原因。     
 ### 希望有大佬可以帮助解决一波~ (Hope you can work it out and tell us the solution.)
-    I call the API of music parsing. Get the address of the audio file, and use Jsoup to get the page source code. Printing out the source code will be messy and very card. Enter the address of the audio file, and the audio file will be parsed and played directly by the browser. What shall I do? I want to download this audio file by clicking the button. (The page of this audio file is someone else's)
+    I call the API of music parsing. Get the address of the audio file, and use Jsoup to get the page source code. Printing out the    source code will be messy and very card. Enter the address of the audio file, and the audio file will be parsed and played directly by   the browser. What shall I do? I want to download this audio file by clicking the button. (The page of this audio file is someone else's)  
 
 Not on my server. Thank you.
 
