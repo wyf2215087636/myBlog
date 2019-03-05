@@ -1,0 +1,54 @@
+div.messagebox {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -240px;
+	margin-top: -70px;
+	width: 440px;
+	min-height: 140px;
+	padding-bottom: 25px;
+	background-color: #FFFFFF;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+div.messagebox div.message-title {
+	font-size: 16px;
+}
+
+div.messagebox div.message-context {
+	font-size: 14px;
+	margin-top: 16px;
+	margin-bottom: 10px;
+	min-height: 70px;
+}
+
+div.messagebox button {
+	padding: 4px 12px;
+	float: right;
+	margin-left: 20px;
+}
+
+
+button {
+	background-color: #FFFFFF;
+	border: #00C1DE solid 1px;
+	color: #00C1DE;
+	font-size: 14px;
+	/*“\0”为了兼用IE8 9 10所有规定行高*/
+	line-height: 20px\0;
+	outline: none;
+	padding: 4px 10px;
+	transition: all 400ms;
+}
+
+button:hover {
+	cursor: pointer;
+	color: #FFFFFF;
+	background-color: #00C1DE;
+}
+
+button:active {
+	background-color: #00B7D3;
+	border-color: #00B7D3;
+}
