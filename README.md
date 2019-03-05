@@ -11,10 +11,16 @@
 8、至于发布文章这一块信息安全方面，由于没有登陆和注册，所以没有进行管辖，这一块是这个网站的漏洞，后期会补上。UE编辑器发布文章新增加了图片上传的功能，图片上传到本地，获取本地图片的地址进行显示。  
   
 有什么好的意见，欢迎大家进行提议。这也是我学习的动力与方向。  
-## 项目截图:
-![imge](https://github.com/wyf2215087636/hello_github/blob/master/项目截图/1.png)  
-![imge](https://github.com/wyf2215087636/hello_github/blob/master/项目截图/2.png)  
-![imge](https://github.com/wyf2215087636/hello_github/blob/master/项目截图/3.png)  
-![imge](https://github.com/wyf2215087636/hello_github/blob/master/项目截图/4.png)  
-![imge](https://github.com/wyf2215087636/hello_github/blob/master/项目截图/5.png)  
+
+
+## 这几天更新的内容  
+1、增加了管理员页面，登陆拦截，管理员的登陆功能。  
+2、增加了音乐解析页面，调用API进行音乐解析(不过直接下载功能需要完善没有想到什么好办法)，使用Jsoup爬src，会直接反回来无限的乱码，我也不知道什么原因。  
+## 项目截图:  
+![imge](https://github.com/wyf2215087636/myBlog/blob/master/img/1.png)  
+![imge](https://github.com/wyf2215087636/myBlog/blob/master/img/2.png)  
+![imge](https://github.com/wyf2215087636/myBlog/blob/master/img/3.png)  
+![imge](https://github.com/wyf2215087636/myBlog/blob/master/img/4.png)  
+![imge](https://github.com/wyf2215087636/myBlog/blob/master/img/5.png)  
 ![imge](https://github.com/wyf2215087636/hello_github/blob/master/项目截图/6.png)  
+![imge](https://github.com/wyf2215087636/myBlog/blob/master/img/7.png)  
