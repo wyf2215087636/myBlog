@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<div th:replace="include::footer1" ></div>
+<link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/editor/css/editormd.min.css" th:href="@{/static/editor/css/editormd.min.css}"/>
+<script type="text/javascript" src="../../webapp/static/editor/editormd.js" th:src="@{/static/editor/editormd.js}"></script>
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+</head>
+<body>
+<header id="header">
+  <div class="navbar">
+    <div class="topbox">
+      <p class="welcome">您好，欢迎您访问王逸飞个人博客，在这里，它不仅仅是记录个人的平台，更是一个记录世界、时代的平台！</p>
+      <div class="searchbox">
+        <div id="search_bar" class="search_bar">
+          <form  id="searchform" action="[!--news.url--]e/search/index.php" method="post" name="searchform">
+            <input class="input" placeholder="想搜点什么呢.." type="text" name="keyboard" id="keyboard"/>
+            <input type="hidden" name="show" value="title" />
+            <input type="hidden" name="tempid" value="1" />
+            <input type="hidden" name="tbname" value="news"/>
+            <input type="hidden" name="Submit" value="搜索" />
+            <p class="search_ico"> <span></span></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-navigation">
+    <nav>
+      <div class="logo"><a href="http://www.yangqq.com">王逸飞个人博客</a></div>
+      <h2 id="mnavh"><span class="navicon"></span></h2>
+      <ul id="starlist">
+        <li><a th:href="@{'/index'}" style="line-height: 40px;display: block;">网站首页</a></li>
+        <li><a th:href="@{'/index'}" style="line-height: 40px;display: block;">关于我</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="wrapper">
+  <main>
+    <h2 class="place">您现在的位置是：<a th:href="@{/index}">首页</a>&nbsp;>&nbsp;<a th:href="@{'/details/'+${p.id}}">帖子详情</a></h2>
+    <div class="infosbox">
+      <div class="newsview">
+        <h3 class="news_title" th:text="${p.title}">title</h3>
+	 <div class="tags">
+	 	<div style="width: 70px;height: 40px;">
+	 		<img th:src="@{'/static/img/eyes.png'}" style="float: left;margin-top: 5px;"/>
+	 		<span th:text="${p.popularity}+' 次'" style="float: left;margin-left: 10px;"></span>
+	 	</div>
+	 </div>
+       <div class="news_about" style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"><strong>简介</strong><span th:text="${p.simple}" >有时候会有这样的错觉：“某一人似曾相识、某一刻似曾经历”，这样奇特的感受大概你也有过。心理学称之为“即视现象”，是记忆中太多杂乱信息制造出的一种潜意识矛盾冲突</span></div>
+        <div class="news_con"> 
+       <p th:utext="${p.content}">有时候会有这样的错觉：&ldquo;某一人似曾相识、某一刻似曾经历&rdquo;，这样奇特的感受大概你也有过。心理学称之为&ldquo;即视现象&rdquo;，是记忆中太多杂乱信息制造出的一种潜意识矛盾冲突。</p>
+		
+        <p></p>
+        </div>
+      </div>
+      
+     <!--  <div class="share">
+<p class="diggit"><a href="JavaScript:makeRequest('/e/public/digg/?classid=6&id=68&dotop=1&doajax=1&ajaxarea=diggnum','EchoReturnedText','GET','');"> 很赞哦！ </a>(<b id="diggnum"><script type="text/javascript" src="/e/public/ViewClick/?classid=6&id=68&down=5"></script></b>)</p>
+     </div> -->
+     
+      <div class="nextinfo">
+      <p th:if="${posts_1!=null}">上一篇：<a th:href="@{'/details/'+${posts_1.id}}" th:text="${posts_1.title}">posts_1.title</a></p>
+      <p th:if="${posts_2!=null}">下一篇：<a th:href="@{'/details/'+${posts_2.id}}" th:text="${posts_2.title}">posts_2.title</a></p>
+      </div>
+     
+      
+      
+    </div>
+    
+     <div class="otherlink"  style="border: 1px solid #ddd">
+        <h2>相关文章</h2>
+        <ul>
+        无相关信息        </ul>
+      </div>
+    
+    <div class="news_pl"  style="border: 1px solid #ddd">
+        <h2>文章评论</h2>
+        <div class="gbko"> 
+        <div th:if="${newReplies.size()==0}">
+        	暂无评论
+        </div>
+        	<div th:each="reply:${newReplies}" class="news_pl">
+        	
+        		<div style="border: 1px solid #ddd;height: 40px;line-height: 40px;font-size:13px;background: #ddd">
+        		<img class="am-circle" src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/1000/h/1000/q/80" width="35" height="35" style="float: left;margin-top: 2px;"/>
+        			<a href="#" th:text="'&nbsp;&nbsp;&nbsp;&nbsp;游客名:'+${reply.username}+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱:'+${reply.useremail}" style="float: left;"></a>
+        		</div>
+        		<blockquote>
+        			<div th:utext="${reply.reply_info}"></div>
+        			<small th:text="${#dates.format(reply.time,'yyyy年MM月dd日 HH:mm:ss')}"></small>
+        		</blockquote>
+        		<div style="height: 8px;border-left: 1px solid #E1E6F6;border-right: 1px solid #E1E6F6;border-bottom: 1px solid #E1E6F6;margin-left: 4px;margin-right: 4px;"></div>
+        	</div>
+        </div>
+      </div>
+      
+    <div class="news_pl">
+        <form action="/details/comment" method="post" class="am-form" id="comment">
+        <fieldset>
+        <legend>发表评论</legend>
+	      	  
+	      	  <div class="am-form-group">
+			      <label for="doc-ipt-email-1">游客名称:</label>
+			      <input name="username" id="username" class="am-form-group" type="text" placeholder="输入即将发表的游客名称"/>
+			  </div>
+			  <div class="am-form-group">
+			      <label for="doc-ipt-email-1">邮箱<span style="font-size: 12px;">(请先输入邮箱获取验证码)</span>:</label>
+			      <input name="useremail" type="text" value="" class="am-form-group" id="email" placeholder="输入你的邮箱"/>
+			  </div>
+			  <div class="am-form-group">
+			      <label for="doc-ipt-email-1"><span style="color: red;">*</span>验证码:</label>
+			      <input name="mail_yzm" type="text" value="" class="am-form-group" id="mail_yzm" placeholder="打开邮箱查看验证码"/>
+			      <a id="so" class="am-btn am-btn-default">发送验证码</a>
+			  </div>
+			  <div class="am-form-group">
+			      <label for="doc-ipt-email-1">评论内容:</label>
+			      <textarea rows="5" cols="" name="reply_info" class="am-form-group" id="reply_info"></textarea>
+			  </div>
+	    	 
+	    	 
+	    	 <input type="hidden" name="posts_id" th:value="${p.id}" id="posts_id"/>
+	    	 <a class="am-btn am-btn-default" id="re">提交</a>
+        </fieldset>
+    	 
+    	</form>
+      </div>
+      
+  </main>
+  
+  
+  
+
+  <aside class="sidebar">
+    <div>
+      <ul class="flnav">
+        <li class="flselect"><a href="#" title="最新文章" class="pall"></a></li>
+        <li><a href="#" title="站长推荐" class="pgood"></a></li>
+        <li><a href="#" title="点击排行" class="pbro"></a></li>
+        <li><a href="#" title="头条关注" class="pfav"></a></li>
+      </ul>
+    </div>
+    <div class="newstw">
+      <ul class="sidenews">
+        <h2>最新文章</h2>
+        <li th:each="p:${pageinfo.list}"> <i><img th:src="${p.imgurl}"/></i>
+          <p><a th:href="@{'/details/'+${p.id}}" th:text="${p.title}">别让这些闹心的套路，毁了你的网页设计</a></p>
+          <span th:text="${#dates.format(p.time,'yyyy年MM月dd日 HH:mm:ss')}">2018-05-13</span> </li>
+      </ul>
+      
+    </div>
+    <div class="links">
+      <h2 class="hometitle">友情链接</h2>
+      <ul>
+        <li><a href="http://www.yangqq.com">杨青个人博客</a></li>
+        <li><a href="http://www.searchtrip.cn">寻之旅</a></li>
+        <li><a href="http://www.yangqq.com/download/">个人博客模板</a></li>
+        <li><a href="http://www.yangqq.com/link.html">优秀个人博客</a></li>
+      </ul>
+    </div>
+    <div class="ad"> <img src="../../static/img/8.jpg"/> </div>
+  </aside>
+  <!--sidebar end--> 
+</div>
+<!--wrapper end-->
+<footer>
+  <div class="footer">
+    <div class="wxbox">
+      <ul>
+        <li><img src="../../static/img/grwx.png"/><span>我的微信</span></li>
+        <li><img src="../../static/img/wx.jpg"/><span>微信公众号</span></li>
+      </ul>
+    </div>
+    <div class="bzjj">
+      <h2>本站简介</h2>
+      <p>欢迎大家到访 飞讯 个人博客</p>
+    </div>
+    <div class="other">
+      <h2>网站版权</h2>
+      <p>未经授权禁止转载、摘编、复制或建立镜像，如有违反，追究法律责任。举报邮箱：2215087636@qq.com</p>
+      <p>&nbsp;</p>
+      <p>备案号：蜀ICP备11002373号-1</p>
+    </div>
+  </div>
+</footer>
+
+	
+<a href="#" class="cd-top">Top</a>
+</body>
+
+</html>

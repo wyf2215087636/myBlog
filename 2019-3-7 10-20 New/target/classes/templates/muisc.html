@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<div th:replace="include::footer1" ></div>
+
+<!--[if lt IE 9]>
+<script src="js/modernizr.js"></script>
+<![endif]-->
+</head>
+<body>
+<header id="header">
+  <div class="navbar">
+    <div class="topbox">
+      <p class="welcome">您好，欢迎您访问王逸飞个人博客，在这里，它不仅仅是记录个人的平台，更是一个记录世界、时代的平台！</p>
+      <div class="searchbox">
+        <div id="search_bar" class="search_bar">
+          <form  id="searchform" action="[!--news.url--]e/search/index.php" method="post" name="searchform">
+            <input class="input" placeholder="想搜点什么呢.." type="text" name="keyboard" id="keyboard"/>
+            <input type="hidden" name="show" value="title" />
+            <input type="hidden" name="tempid" value="1" />
+            <input type="hidden" name="tbname" value="news"/>
+            <input type="hidden" name="Submit" value="搜索" />
+            <p class="search_ico"> <span></span></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-navigation">
+    <nav>
+      <div class="logo"><a href="http://www.yangqq.com">王逸飞个人博客</a></div>
+      <h2 id="mnavh"><span class="navicon"></span></h2>
+      <ul id="starlist">
+        <li><a th:href="@{'/index'}" style="line-height: 40px;display: block;">网站首页</a></li>
+        <li><a th:href="@{'/muisc'}" style="line-height: 40px;display: block;">音乐解析</a></li>
+        <li><a th:href="@{'/index1'}" style="line-height: 40px;display: block;">关于我</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="wrapper">
+  <main> 
+    <div class="news_pl" style="border: 1px solid #cccccc" id="vuetest">
+        <form action="/so_muisc" method="post" class="am-form" id="comment">
+        <fieldset>
+        <legend>音乐解析</legend>
+	      	  
+	      	  <div class="am-form-group">
+			      <label for="doc-ipt-email-1">你需要搜索的音乐:</label>
+			      <input name="muisc_name" id="muisc_name" class="am-form-group" type="text" placeholder="输入音乐名称"/>
+			      <input type="text" placeholder="解析之后的音乐网页即将出现在这里哦~~~~"  id="muisc_url" class="am-form-group"/>
+			      <input type="text" placeholder="音乐作者会出现在这里哦~~~~"  id="muiscer" class="am-form-group"/>
+			  </div>
+	    	 <a class="am-btn am-btn-default" id="so_muisc">开始地毯式搜索</a>
+	    	 <a class="am-btn am-btn-default" id="download_muisc">下载该音乐</a>
+        </fieldset>
+        <span style="color: red;">*:只需要输入音乐的名称即可~,我们会按照网易云音乐的热歌排名对排名第一的音乐解析，可能不是您需要的音乐~<br/>&nbsp;&nbsp;我们会尽快改善。</span><br/>
+        <span style="color: red;">*:下载地址默认在桌面~(下载需要一定的时间，请耐心等待。具体时间根据网速而定。)</span>
+    	 
+    	</form>
+      </div>
+      
+      
+		
+  </main>
+</div>
+</body>
+</html>
