@@ -8,16 +8,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-
-import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -78,7 +71,7 @@ public class Test {
 	
 	//请求api获取返回的json进行解析
 	public List<String> jsonIsOk(String url){
-		String httpurl = "https://api.mlwei.com/music/api/wy/?key=523077333&id="+url+"&type=so&cache=0&nu=1";
+		String httpurl = "https://api.mlwei.com/music/api/?key=523077333&id="+url+"&type=so&cache=0&size=hq&nu=1";
 		String result = httpRequestUtils(httpurl, "");
 		System.out.println(result);
 		
