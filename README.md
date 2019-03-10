@@ -40,10 +40,15 @@
 2019-3-7    10:23=========================  
 1、更新了音乐下载的功能，使用HttpClient    
   
+2019-3-10 21：14=====================  
+1、更新了音乐解析的API接口  
+  
+  
 ### 希望有大佬可以帮助解决一波~ (Hope you can work it out and tell us the solution.)
     I call the API of music parsing. Get the address of the audio file, and use Jsoup to get the page source code. Printing out the    source code will be messy and very card. Enter the address of the audio file, and the audio file will be parsed and played directly by   the browser. What shall I do? I want to download this audio file by clicking the button. (The page of this audio file is someone else's)  
 
 Not on my server. Thank you.(已经解决)
+
 
 ## 项目截图:  
 ![imge](https://github.com/wyf2215087636/myBlog/blob/master/img/1.png)  
